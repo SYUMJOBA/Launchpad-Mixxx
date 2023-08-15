@@ -1,0 +1,752 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MixxxControllerPreset mixxxVersion="1.11+" schemaVersion="1">
+    <info>
+        <name>Some dope launchpad script</name>
+        <author>SYUMJOBA</author>
+        <description>A compact DJ launchpad design, filled with colors to make it easier to understand adn designed to operate two decks on one launchpad</description>
+    </info>
+    <controller id="LaunchpadMK2">
+        <scriptfiles>
+            <file functionprefix="DJPad" filename="DJpadscript.js"/>
+        </scriptfiles>
+            <controls>
+                <control>
+                    <!-- FIRST ROW -->
+                    <key>DJPad.Key_0x68</key>
+                    <status>0x90</status>
+                    <midino>0x68</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x69</key>
+                    <status>0x90</status>
+                    <midino>0x69</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x6a</key>
+                    <status>0x90</status>
+                    <midino>0x6a</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x6b</key>
+                    <status>0x90</status>
+                    <midino>0x6b</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x6c</key>
+                    <status>0x90</status>
+                    <midino>0x6c</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x6d</key>
+                    <status>0x90</status>
+                    <midino>0x6d</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x6e</key>
+                    <status>0x90</status>
+                    <midino>0x6e</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x6f</key>
+                    <status>0x90</status>
+                    <midino>0x6f</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            <!-- SECOND ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x51</key>
+                    <status>0x90</status>
+                    <midino>0x51</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x52</key>
+                    <status>0x90</status>
+                    <midino>0x52</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x53</key>
+                    <status>0x90</status>
+                    <midino>0x53</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x54</key>
+                    <status>0x90</status>
+                    <midino>0x54</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x55</key>
+                    <status>0x90</status>
+                    <midino>0x55</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x56</key>
+                    <status>0x90</status>
+                    <midino>0x56</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x57</key>
+                    <status>0x90</status>
+                    <midino>0x57</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x58</key>
+                    <status>0x90</status>
+                    <midino>0x58</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x59</key>
+                    <status>0x90</status>
+                    <midino>0x59</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <!-- THIRD ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x47</key>
+                    <status>0x90</status>
+                    <midino>0x47</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x48</key>
+                    <status>0x90</status>
+                    <midino>0x48</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x49</key>
+                    <status>0x90</status>
+                    <midino>0x49</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x4a</key>
+                    <status>0x90</status>
+                    <midino>0x4a</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x4b</key>
+                    <status>0x90</status>
+                    <midino>0x4b</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x4c</key>
+                    <status>0x90</status>
+                    <midino>0x4c</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x4d</key>
+                    <status>0x90</status>
+                    <midino>0x4d</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x4e</key>
+                    <status>0x90</status>
+                    <midino>0x4e</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x4f</key>
+                    <status>0x90</status>
+                    <midino>0x4f</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            <!-- FORTH ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x3d</key>
+                    <status>0x90</status>
+                    <midino>0x3d</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x3e</key>
+                    <status>0x90</status>
+                    <midino>0x3e</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x3f</key>
+                    <status>0x90</status>
+                    <midino>0x3f</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x40</key>
+                    <status>0x90</status>
+                    <midino>0x40</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x41</key>
+                    <status>0x90</status>
+                    <midino>0x41</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x42</key>
+                    <status>0x90</status>
+                    <midino>0x42</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x43</key>
+                    <status>0x90</status>
+                    <midino>0x43</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x44</key>
+                    <status>0x90</status>
+                    <midino>0x44</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x45</key>
+                    <status>0x90</status>
+                    <midino>0x45</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            <!-- FIFTH ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x33</key>
+                    <status>0x90</status>
+                    <midino>0x33</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x34</key>
+                    <status>0x90</status>
+                    <midino>0x34</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x35</key>
+                    <status>0x90</status>
+                    <midino>0x35</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x36</key>
+                    <status>0x90</status>
+                    <midino>0x36</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x37</key>
+                    <status>0x90</status>
+                    <midino>0x37</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x38</key>
+                    <status>0x90</status>
+                    <midino>0x38</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x39</key>
+                    <status>0x90</status>
+                    <midino>0x39</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x3a</key>
+                    <status>0x90</status>
+                    <midino>0x3a</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x3b</key>
+                    <status>0x90</status>
+                    <midino>0x3b</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            <!-- SIXTH ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x29</key>
+                    <status>0x90</status>
+                    <midino>0x29</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x2a</key>
+                    <status>0x90</status>
+                    <midino>0x2a</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x2b</key>
+                    <status>0x90</status>
+                    <midino>0x2b</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x2c</key>
+                    <status>0x90</status>
+                    <midino>0x2c</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x2d</key>
+                    <status>0x90</status>
+                    <midino>0x2d</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x2e</key>
+                    <status>0x90</status>
+                    <midino>0x2e</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x2f</key>
+                    <status>0x90</status>
+                    <midino>0x2f</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x30</key>
+                    <status>0x90</status>
+                    <midino>0x30</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x31</key>
+                    <status>0x90</status>
+                    <midino>0x31</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            <!-- SEVENTH ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x1f</key>
+                    <status>0x90</status>
+                    <midino>0x1f</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x20</key>
+                    <status>0x90</status>
+                    <midino>0x20</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x21</key>
+                    <status>0x90</status>
+                    <midino>0x21</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x22</key>
+                    <status>0x90</status>
+                    <midino>0x22</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x23</key>
+                    <status>0x90</status>
+                    <midino>0x23</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x24</key>
+                    <status>0x90</status>
+                    <midino>0x24</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x25</key>
+                    <status>0x90</status>
+                    <midino>0x25</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x26</key>
+                    <status>0x90</status>
+                    <midino>0x26</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x27</key>
+                    <status>0x90</status>
+                    <midino>0x27</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            <!-- EIGHT ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x15</key>
+                    <status>0x90</status>
+                    <midino>0x15</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x16</key>
+                    <status>0x90</status>
+                    <midino>0x16</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x17</key>
+                    <status>0x90</status>
+                    <midino>0x17</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x18</key>
+                    <status>0x90</status>
+                    <midino>0x18</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x19</key>
+                    <status>0x90</status>
+                    <midino>0x19</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x1a</key>
+                    <status>0x90</status>
+                    <midino>0x1a</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x1b</key>
+                    <status>0x90</status>
+                    <midino>0x1b</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x1c</key>
+                    <status>0x90</status>
+                    <midino>0x1c</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x1d</key>
+                    <status>0x90</status>
+                    <midino>0x1d</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            <!-- NINTH ROW -->
+
+                <control>
+                    <key>DJPad.Key_0x0b</key>
+                    <status>0x90</status>
+                    <midino>0x0b</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x0c</key>
+                    <status>0x90</status>
+                    <midino>0x0c</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x0d</key>
+                    <status>0x90</status>
+                    <midino>0x0d</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x0e</key>
+                    <status>0x90</status>
+                    <midino>0x0e</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x0f</key>
+                    <status>0x90</status>
+                    <midino>0x0f</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x10</key>
+                    <status>0x90</status>
+                    <midino>0x10</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x11</key>
+                    <status>0x90</status>
+                    <midino>0x11</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x12</key>
+                    <status>0x90</status>
+                    <midino>0x12</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+                <control>
+                    <key>DJPad.Key_0x13</key>
+                    <status>0x90</status>
+                    <midino>0x13</midino>
+                    <options>
+                        <script-binding/>
+                    </options>
+                </control>
+
+            </controls>
+    </controller>
+</MixxxControllerPreset>
