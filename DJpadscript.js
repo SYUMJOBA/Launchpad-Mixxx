@@ -1,6 +1,15 @@
 var DJPad = {};
 var shifting = false;
 
+var deck1channel = "[Channel1]";
+var deck2channel = "[Channel2]";
+
+var deck1Channels_register = ["[Channel1]", "[Channel3]"];
+var deck1ChannelCounter = 0;
+var deck2Channels_register = ["[Channel2]", "[Channel4]"];
+var deck2ChannelCounter = 0;
+var deckLayerColours = [56,95];
+
 function setupColor(LocalColor){
     for (var i = 0; i < 90; i++) {
         midi.sendShortMsg(0x90, i, LocalColor); //just resents the entire launchpad of whatever color you like
@@ -16,7 +25,19 @@ function color(button, color){
     midi.sendShortMsg(0x90, button, color); //shortens code a lot
 }
 
-function jp(value){
+function switchDeck1(button) {
+    deck1ChannelCounter++;
+    deck1channel = deck1Channels_register[deck1ChannelCounter%2];
+    color(0x53, deckLayerColours[deck1ChannelCounter%2]);
+}
+
+function switchDeck2(button) {
+    deck2ChannelCounter++;
+    deck2channel = deck2Channels_register[deck2ChannelCounter%2];
+    color(0x57, deckLayerColours[deck2ChannelCounter%2]);
+}
+
+function jp(value){ //just pressed
     if (value == 0x7f){
         return true;
     } else {
@@ -309,61 +330,61 @@ function manageCues(PadState, Channel, specificCue, Address){
     }
 }
 
-DJPad.Key_0x51 = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 1)}
-DJPad.Key_0x52 = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 2)}
-DJPad.Key_0x47 = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 3)}
-DJPad.Key_0x48 = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 4)}
-DJPad.Key_0x3d = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 5)}
-DJPad.Key_0x3e = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 6)}
-DJPad.Key_0x33 = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 7)}
-DJPad.Key_0x34 = function(channel, control, value, status, group){manageCues(value, "[Channel1]", 8)}
+DJPad.Key_0x51 = function(channel, control, value, status, group){manageCues(value, deck1channel, 1)}
+DJPad.Key_0x52 = function(channel, control, value, status, group){manageCues(value, deck1channel, 2)}
+DJPad.Key_0x47 = function(channel, control, value, status, group){manageCues(value, deck1channel, 3)}
+DJPad.Key_0x48 = function(channel, control, value, status, group){manageCues(value, deck1channel, 4)}
+DJPad.Key_0x3d = function(channel, control, value, status, group){manageCues(value, deck1channel, 5)}
+DJPad.Key_0x3e = function(channel, control, value, status, group){manageCues(value, deck1channel, 6)}
+DJPad.Key_0x33 = function(channel, control, value, status, group){manageCues(value, deck1channel, 7)}
+DJPad.Key_0x34 = function(channel, control, value, status, group){manageCues(value, deck1channel, 8)}
 
-DJPad.Key_0x55 = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 1)}
-DJPad.Key_0x56 = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 2)}
-DJPad.Key_0x4b = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 3)}
-DJPad.Key_0x4c = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 4)}
-DJPad.Key_0x41 = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 5)}
-DJPad.Key_0x42 = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 6)}
-DJPad.Key_0x37 = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 7)}
-DJPad.Key_0x38 = function(channel, control, value, status, group){manageCues(value, "[Channel2]", 8)}
+DJPad.Key_0x55 = function(channel, control, value, status, group){manageCues(value, deck2channel, 1)}
+DJPad.Key_0x56 = function(channel, control, value, status, group){manageCues(value, deck2channel, 2)}
+DJPad.Key_0x4b = function(channel, control, value, status, group){manageCues(value, deck2channel, 3)}
+DJPad.Key_0x4c = function(channel, control, value, status, group){manageCues(value, deck2channel, 4)}
+DJPad.Key_0x41 = function(channel, control, value, status, group){manageCues(value, deck2channel, 5)}
+DJPad.Key_0x42 = function(channel, control, value, status, group){manageCues(value, deck2channel, 6)}
+DJPad.Key_0x37 = function(channel, control, value, status, group){manageCues(value, deck2channel, 7)}
+DJPad.Key_0x38 = function(channel, control, value, status, group){manageCues(value, deck2channel, 8)}
 
-colorCue_Deck1_Cue1 = function(){colorCue(0x51, "[Channel1]", 1);}
-colorCue_Deck1_Cue2 = function(){colorCue(0x52, "[Channel1]", 2);}
-colorCue_Deck1_Cue3 = function(){colorCue(0x47, "[Channel1]", 3);}
-colorCue_Deck1_Cue4 = function(){colorCue(0x48, "[Channel1]", 4);}
-colorCue_Deck1_Cue5 = function(){colorCue(0x3d, "[Channel1]", 5);}
-colorCue_Deck1_Cue6 = function(){colorCue(0x3e, "[Channel1]", 6);}
-colorCue_Deck1_Cue7 = function(){colorCue(0x33, "[Channel1]", 7);}
-colorCue_Deck1_Cue8 = function(){colorCue(0x34, "[Channel1]", 8);}
+colorCue_Deck1_Cue1 = function(){colorCue(0x51, deck1channel, 1);}
+colorCue_Deck1_Cue2 = function(){colorCue(0x52, deck1channel, 2);}
+colorCue_Deck1_Cue3 = function(){colorCue(0x47, deck1channel, 3);}
+colorCue_Deck1_Cue4 = function(){colorCue(0x48, deck1channel, 4);}
+colorCue_Deck1_Cue5 = function(){colorCue(0x3d, deck1channel, 5);}
+colorCue_Deck1_Cue6 = function(){colorCue(0x3e, deck1channel, 6);}
+colorCue_Deck1_Cue7 = function(){colorCue(0x33, deck1channel, 7);}
+colorCue_Deck1_Cue8 = function(){colorCue(0x34, deck1channel, 8);}
 
-colorCue_Deck2_Cue1 = function(){colorCue(0x55, "[Channel2]", 1);}
-colorCue_Deck2_Cue2 = function(){colorCue(0x56, "[Channel2]", 2);}
-colorCue_Deck2_Cue3 = function(){colorCue(0x4b, "[Channel2]", 3);}
-colorCue_Deck2_Cue4 = function(){colorCue(0x4c, "[Channel2]", 4);}
-colorCue_Deck2_Cue5 = function(){colorCue(0x41, "[Channel2]", 5);}
-colorCue_Deck2_Cue6 = function(){colorCue(0x42, "[Channel2]", 6);}
-colorCue_Deck2_Cue7 = function(){colorCue(0x37, "[Channel2]", 7);}
-colorCue_Deck2_Cue8 = function(){colorCue(0x38, "[Channel2]", 8);}
+colorCue_Deck2_Cue1 = function(){colorCue(0x55, deck2channel, 1);}
+colorCue_Deck2_Cue2 = function(){colorCue(0x56, deck2channel, 2);}
+colorCue_Deck2_Cue3 = function(){colorCue(0x4b, deck2channel, 3);}
+colorCue_Deck2_Cue4 = function(){colorCue(0x4c, deck2channel, 4);}
+colorCue_Deck2_Cue5 = function(){colorCue(0x41, deck2channel, 5);}
+colorCue_Deck2_Cue6 = function(){colorCue(0x42, deck2channel, 6);}
+colorCue_Deck2_Cue7 = function(){colorCue(0x37, deck2channel, 7);}
+colorCue_Deck2_Cue8 = function(){colorCue(0x38, deck2channel, 8);}
 
 var crossfaderconnection = engine.makeConnection("[Master]", "crossfader", managecrossfader);
 
-var Cue1_Deck1 = engine.makeConnection("[Channel1]", "hotcue_1_enabled", colorCue_Deck1_Cue1);
-var Cue2_Deck1 = engine.makeConnection("[Channel1]", "hotcue_2_enabled", colorCue_Deck1_Cue2);
-var Cue3_Deck1 = engine.makeConnection("[Channel1]", "hotcue_3_enabled", colorCue_Deck1_Cue3);
-var Cue4_Deck1 = engine.makeConnection("[Channel1]", "hotcue_4_enabled", colorCue_Deck1_Cue4);
-var Cue5_Deck1 = engine.makeConnection("[Channel1]", "hotcue_5_enabled", colorCue_Deck1_Cue5);
-var Cue6_Deck1 = engine.makeConnection("[Channel1]", "hotcue_6_enabled", colorCue_Deck1_Cue6);
-var Cue7_Deck1 = engine.makeConnection("[Channel1]", "hotcue_7_enabled", colorCue_Deck1_Cue7);
-var Cue8_Deck1 = engine.makeConnection("[Channel1]", "hotcue_8_enabled", colorCue_Deck1_Cue8);
+var Cue1_Deck1 = engine.makeConnection(deck1channel, "hotcue_1_enabled", colorCue_Deck1_Cue1);
+var Cue2_Deck1 = engine.makeConnection(deck1channel, "hotcue_2_enabled", colorCue_Deck1_Cue2);
+var Cue3_Deck1 = engine.makeConnection(deck1channel, "hotcue_3_enabled", colorCue_Deck1_Cue3);
+var Cue4_Deck1 = engine.makeConnection(deck1channel, "hotcue_4_enabled", colorCue_Deck1_Cue4);
+var Cue5_Deck1 = engine.makeConnection(deck1channel, "hotcue_5_enabled", colorCue_Deck1_Cue5);
+var Cue6_Deck1 = engine.makeConnection(deck1channel, "hotcue_6_enabled", colorCue_Deck1_Cue6);
+var Cue7_Deck1 = engine.makeConnection(deck1channel, "hotcue_7_enabled", colorCue_Deck1_Cue7);
+var Cue8_Deck1 = engine.makeConnection(deck1channel, "hotcue_8_enabled", colorCue_Deck1_Cue8);
 
-var Cue1_Deck2 = engine.makeConnection("[Channel2]", "hotcue_1_enabled", colorCue_Deck2_Cue1);
-var Cue2_Deck2 = engine.makeConnection("[Channel2]", "hotcue_2_enabled", colorCue_Deck2_Cue2);
-var Cue3_Deck2 = engine.makeConnection("[Channel2]", "hotcue_3_enabled", colorCue_Deck2_Cue3);
-var Cue4_Deck2 = engine.makeConnection("[Channel2]", "hotcue_4_enabled", colorCue_Deck2_Cue4);
-var Cue5_Deck2 = engine.makeConnection("[Channel2]", "hotcue_5_enabled", colorCue_Deck2_Cue5);
-var Cue6_Deck2 = engine.makeConnection("[Channel2]", "hotcue_6_enabled", colorCue_Deck2_Cue6);
-var Cue7_Deck2 = engine.makeConnection("[Channel2]", "hotcue_7_enabled", colorCue_Deck2_Cue7);
-var Cue8_Deck2 = engine.makeConnection("[Channel2]", "hotcue_8_enabled", colorCue_Deck2_Cue8);
+var Cue1_Deck2 = engine.makeConnection(deck2channel, "hotcue_1_enabled", colorCue_Deck2_Cue1);
+var Cue2_Deck2 = engine.makeConnection(deck2channel, "hotcue_2_enabled", colorCue_Deck2_Cue2);
+var Cue3_Deck2 = engine.makeConnection(deck2channel, "hotcue_3_enabled", colorCue_Deck2_Cue3);
+var Cue4_Deck2 = engine.makeConnection(deck2channel, "hotcue_4_enabled", colorCue_Deck2_Cue4);
+var Cue5_Deck2 = engine.makeConnection(deck2channel, "hotcue_5_enabled", colorCue_Deck2_Cue5);
+var Cue6_Deck2 = engine.makeConnection(deck2channel, "hotcue_6_enabled", colorCue_Deck2_Cue6);
+var Cue7_Deck2 = engine.makeConnection(deck2channel, "hotcue_7_enabled", colorCue_Deck2_Cue7);
+var Cue8_Deck2 = engine.makeConnection(deck2channel, "hotcue_8_enabled", colorCue_Deck2_Cue8);
 
 
 //play buttons
@@ -380,8 +401,8 @@ function playFuncManager(controlPad, Channel, PressingState){
     }
 }
 
-DJPad.Key_0x29 = function(channel, control, value, status, group){playFuncManager(control, "[Channel1]", value)}
-DJPad.Key_0x2d = function(channel, control, value, status, group){playFuncManager(control, "[Channel2]", value)}
+DJPad.Key_0x29 = function(channel, control, value, status, group){playFuncManager(control, deck1channel, value)}
+DJPad.Key_0x2d = function(channel, control, value, status, group){playFuncManager(control, deck2channel, value)}
 
 function ManagePlayColor (address, channel){
     if (engine.getParameter("[Channel"+channel+"]", "play")){
@@ -394,8 +415,8 @@ function ManagePlayColor (address, channel){
 function PlayButton1(){ManagePlayColor(0x29, 1)}
 function PlayButton2(){ManagePlayColor(0x2d, 2)}
 
-var PlayButton1Connection = engine.makeConnection("[Channel1]", "play", PlayButton1);
-var PlayButton2Connection = engine.makeConnection("[Channel2]", "play", PlayButton2);;
+var PlayButton1Connection = engine.makeConnection(deck1channel, "play", PlayButton1);
+var PlayButton2Connection = engine.makeConnection(deck2channel, "play", PlayButton2);;
 
 function manageBeatJump (value, Action, Channel, address){
     if (jp(value)){
@@ -428,32 +449,35 @@ function manageBeatJumpEdit (value, halve, Channel, address){
     }
 }
 
-DJPad.Key_0x40 = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_forward" , "[Channel1]", control)}
-DJPad.Key_0x43 = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_backward", "[Channel2]", control)}
-DJPad.Key_0x44 = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_forward" , "[Channel2]", control)}
-DJPad.Key_0x3f = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_backward", "[Channel1]", control)}
+DJPad.Key_0x40 = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_forward" , deck1channel, control)}
+DJPad.Key_0x43 = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_backward", deck2channel, control)}
+DJPad.Key_0x44 = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_forward" , deck2channel, control)}
+DJPad.Key_0x3f = function(channel, control, value, status, group){manageBeatJump(value, "beatjump_backward", deck1channel, control)}
 
 
-DJPad.Key_0x35 = function(channel, control, value, status, group){manageBeatJumpEdit(value, true, "[Channel1]", control)}
-DJPad.Key_0x36 = function(channel, control, value, status, group){manageBeatJumpEdit(value, false, "[Channel1]", control)}
-DJPad.Key_0x39 = function(channel, control, value, status, group){manageBeatJumpEdit(value, true, "[Channel2]", control)}
-DJPad.Key_0x3a = function(channel, control, value, status, group){manageBeatJumpEdit(value, false, "[Channel2]", control)}
+DJPad.Key_0x35 = function(channel, control, value, status, group){manageBeatJumpEdit(value, true, deck1channel, control)}
+DJPad.Key_0x36 = function(channel, control, value, status, group){manageBeatJumpEdit(value, false, deck1channel, control)}
+DJPad.Key_0x39 = function(channel, control, value, status, group){manageBeatJumpEdit(value, true, deck2channel, control)}
+DJPad.Key_0x3a = function(channel, control, value, status, group){manageBeatJumpEdit(value, false, deck2channel, control)}
 
-function setBeatLoop(address, Channel, value){
+function setBeatLoop(address, Channel, value, decknum){
     if(jp(value)){
         if (shifting){
-            engine.setParameter(Channel, "beatloop_size", 4);
+            if (decknum == 0) {
+                switchDeck1();
+            }
+            else{ 
+                switchDeck2();
+            }
+        } else {
+            engine.setParameter(Channel, "reloop_toggle", false);
+            engine.setParameter(Channel, "beatloop_" + engine.getParameter(Channel, "beatloop_size") + "_toggle", true);
         }
-        engine.setParameter(Channel, "reloop_toggle", false);
-        engine.setParameter(Channel, "beatloop_" + engine.getParameter(Channel, "beatloop_size") + "_toggle", true);
-        color(address, colors.action_pressed);
-    } else {
-        color(address, colors.loopGeneral);
     }
 }
 
-DJPad.Key_0x53 = function(channel, control, value, status, group){setBeatLoop(control, "[Channel1]", value)}
-DJPad.Key_0x57 = function(channel, control, value, status, group){setBeatLoop(control, "[Channel2]", value)}
+DJPad.Key_0x53 = function(channel, control, value, status, group){setBeatLoop(control, deck1channel, value, 0)}
+DJPad.Key_0x57 = function(channel, control, value, status, group){setBeatLoop(control, deck2channel, value, 1)}
 
 function IndicateLoop(address, Channel){
     if (engine.getParameter(Channel, "loop_enabled")){
@@ -463,11 +487,11 @@ function IndicateLoop(address, Channel){
     }
 }
 
-function Reloop_light_Deck_1(){IndicateLoop(loopButtons.deck1.reloop, "[Channel1]")}
-function Reloop_light_Deck_2(){IndicateLoop(loopButtons.deck2.reloop, "[Channel2]")}
+function Reloop_light_Deck_1(){IndicateLoop(loopButtons.deck1.reloop, deck1channel)}
+function Reloop_light_Deck_2(){IndicateLoop(loopButtons.deck2.reloop, deck2channel)}
 
-var Reloop_light_Deck_1_connect = engine.makeConnection("[Channel1]", "loop_enabled", Reloop_light_Deck_1)
-var Reloop_light_Deck_2_connect = engine.makeConnection("[Channel2]", "loop_enabled", Reloop_light_Deck_2)
+var Reloop_light_Deck_1_connect = engine.makeConnection(deck1channel, "loop_enabled", Reloop_light_Deck_1)
+var Reloop_light_Deck_2_connect = engine.makeConnection(deck2channel, "loop_enabled", Reloop_light_Deck_2)
 
 function ManageReloop(address, channel, value){
     if(jp(value)){
@@ -475,8 +499,8 @@ function ManageReloop(address, channel, value){
     }
 }
 
-DJPad.Key_0x54 = function(channel, control, value, status, group){ManageReloop(control, "[Channel1]", value)}
-DJPad.Key_0x58 = function(channel, control, value, status, group){ManageReloop(control, "[Channel2]", value)}
+DJPad.Key_0x54 = function(channel, control, value, status, group){ManageReloop(control, deck1channel, value)}
+DJPad.Key_0x58 = function(channel, control, value, status, group){ManageReloop(control, deck2channel, value)}
 
 function manageBeatLoopEdit (value, halve, Channel, address){
     if (jp(value)){
@@ -501,10 +525,10 @@ function manageBeatLoopEdit (value, halve, Channel, address){
     }
 }
 
-DJPad.Key_0x49 = function(channel, control, value, status, group){manageBeatLoopEdit(value, true,  "[Channel1]", control)}
-DJPad.Key_0x4a = function(channel, control, value, status, group){manageBeatLoopEdit(value, false, "[Channel1]", control)}
-DJPad.Key_0x4d = function(channel, control, value, status, group){manageBeatLoopEdit(value, true,  "[Channel2]", control)}
-DJPad.Key_0x4e = function(channel, control, value, status, group){manageBeatLoopEdit(value, false, "[Channel2]", control)}
+DJPad.Key_0x49 = function(channel, control, value, status, group){manageBeatLoopEdit(value, true,  deck1channel, control)}
+DJPad.Key_0x4a = function(channel, control, value, status, group){manageBeatLoopEdit(value, false, deck1channel, control)}
+DJPad.Key_0x4d = function(channel, control, value, status, group){manageBeatLoopEdit(value, true,  deck2channel, control)}
+DJPad.Key_0x4e = function(channel, control, value, status, group){manageBeatLoopEdit(value, false, deck2channel, control)}
 
 function manageSync(channel, value){
     if (jp(value)){
@@ -525,16 +549,16 @@ function managesyncConolor(channel, address){
     }
 }
 
-function Deck1_Sync(){managesyncConolor("[Channel1]", 0x15)}
-function Deck2_Sync(){managesyncConolor("[Channel2]", 0x19)}
+function Deck1_Sync(){managesyncConolor(deck1channel, 0x15)}
+function Deck2_Sync(){managesyncConolor(deck2channel, 0x19)}
 
-var Deck1_sync_connection = engine.makeConnection("[Channel1]", "beatsync", Deck1_Sync);
-var Deck2_sync_connection = engine.makeConnection("[Channel2]", "beatsync", Deck2_Sync);
+var Deck1_sync_connection = engine.makeConnection(deck1channel, "beatsync", Deck1_Sync);
+var Deck2_sync_connection = engine.makeConnection(deck2channel, "beatsync", Deck2_Sync);
 
 
 
-DJPad.Key_0x15 = function(channel, control, value, status, group){manageSync("[Channel1]", value)}
-DJPad.Key_0x19 = function(channel, control, value, status, group){manageSync("[Channel2]", value)}
+DJPad.Key_0x15 = function(channel, control, value, status, group){manageSync(deck1channel, value)}
+DJPad.Key_0x19 = function(channel, control, value, status, group){manageSync(deck2channel, value)}
 
 //una funzione che aggiunge e basta
 //una funzione che toglie e basta
@@ -554,19 +578,19 @@ function ManageEQ(add, type, channel, value){
     }
 }
 
-DJPad.Key_0x2a = function(channel, control, value, status, group){ManageEQ(true,  "filterLow", "[Channel1]",  value)}
-DJPad.Key_0x20 = function(channel, control, value, status, group){ManageEQ(false, "filterLow", "[Channel1]",  value)}
-DJPad.Key_0x2b = function(channel, control, value, status, group){ManageEQ(true,  "filterMid", "[Channel1]",  value)}
-DJPad.Key_0x21 = function(channel, control, value, status, group){ManageEQ(false, "filterMid", "[Channel1]",  value)}
-DJPad.Key_0x2c = function(channel, control, value, status, group){ManageEQ(true,  "filterHigh", "[Channel1]", value)}
-DJPad.Key_0x22 = function(channel, control, value, status, group){ManageEQ(false, "filterHigh", "[Channel1]", value)}
+DJPad.Key_0x2a = function(channel, control, value, status, group){ManageEQ(true,  "filterLow", deck1channel,  value)}
+DJPad.Key_0x20 = function(channel, control, value, status, group){ManageEQ(false, "filterLow", deck1channel,  value)}
+DJPad.Key_0x2b = function(channel, control, value, status, group){ManageEQ(true,  "filterMid", deck1channel,  value)}
+DJPad.Key_0x21 = function(channel, control, value, status, group){ManageEQ(false, "filterMid", deck1channel,  value)}
+DJPad.Key_0x2c = function(channel, control, value, status, group){ManageEQ(true,  "filterHigh", deck1channel, value)}
+DJPad.Key_0x22 = function(channel, control, value, status, group){ManageEQ(false, "filterHigh", deck1channel, value)}
 
-DJPad.Key_0x2e = function(channel, control, value, status, group){ManageEQ(true,  "filterLow", "[Channel2]",  value)}
-DJPad.Key_0x24 = function(channel, control, value, status, group){ManageEQ(false, "filterLow", "[Channel2]",  value)}
-DJPad.Key_0x2f = function(channel, control, value, status, group){ManageEQ(true,  "filterMid", "[Channel2]",  value)}
-DJPad.Key_0x25 = function(channel, control, value, status, group){ManageEQ(false, "filterMid", "[Channel2]",  value)}
-DJPad.Key_0x30 = function(channel, control, value, status, group){ManageEQ(true,  "filterHigh", "[Channel2]", value)}
-DJPad.Key_0x26 = function(channel, control, value, status, group){ManageEQ(false, "filterHigh", "[Channel2]", value)}
+DJPad.Key_0x2e = function(channel, control, value, status, group){ManageEQ(true,  "filterLow", deck2channel,  value)}
+DJPad.Key_0x24 = function(channel, control, value, status, group){ManageEQ(false, "filterLow", deck2channel,  value)}
+DJPad.Key_0x2f = function(channel, control, value, status, group){ManageEQ(true,  "filterMid", deck2channel,  value)}
+DJPad.Key_0x25 = function(channel, control, value, status, group){ManageEQ(false, "filterMid", deck2channel,  value)}
+DJPad.Key_0x30 = function(channel, control, value, status, group){ManageEQ(true,  "filterHigh", deck2channel, value)}
+DJPad.Key_0x26 = function(channel, control, value, status, group){ManageEQ(false, "filterHigh", deck2channel, value)}
 
 function manageCue(value, channel){
     if (jp(value)){
@@ -584,14 +608,14 @@ function manageCueLight(channel, address){
     }
 }
 
-function Deck1_cue(){manageCueLight("[Channel1]", 0x1f)}
-function Deck2_cue(){manageCueLight("[Channel2]", 0x23)}
+function Deck1_cue(){manageCueLight(deck1channel, 0x1f)}
+function Deck2_cue(){manageCueLight(deck2channel, 0x23)}
 
-var Deck1_cue_connection = engine.makeConnection("[Channel1]", "cue_default", Deck1_cue);
-var Deck2_cue_connection = engine.makeConnection("[Channel2]", "cue_default", Deck2_cue);
+var Deck1_cue_connection = engine.makeConnection(deck1channel, "cue_default", Deck1_cue);
+var Deck2_cue_connection = engine.makeConnection(deck2channel, "cue_default", Deck2_cue);
 
-DJPad.Key_0x1f = function(channel, control, value, status, group){manageCue(value, "[Channel1]")}
-DJPad.Key_0x23 = function(channel, control, value, status, group){manageCue(value, "[Channel2]")}
+DJPad.Key_0x1f = function(channel, control, value, status, group){manageCue(value, deck1channel)}
+DJPad.Key_0x23 = function(channel, control, value, status, group){manageCue(value, deck2channel)}
 
 function TogglePrelisten(Deck, value){
     if (jp(value)){
@@ -599,8 +623,8 @@ function TogglePrelisten(Deck, value){
     }
 }
 
-DJPad.Key_0x18 = function(channel, control, value, status, group){TogglePrelisten("[Channel1]", value)}
-DJPad.Key_0x1c = function(channel, control, value, status, group){TogglePrelisten("[Channel2]", value)}
+DJPad.Key_0x18 = function(channel, control, value, status, group){TogglePrelisten(deck1channel, value)}
+DJPad.Key_0x1c = function(channel, control, value, status, group){TogglePrelisten(deck2channel, value)}
 
 function ManagePFLColor(Deck, key){
     if (engine.getParameter(Deck, "pfl")){
@@ -610,11 +634,11 @@ function ManagePFLColor(Deck, key){
     }
 }
 
-function managePFLColorDeck1(){ManagePFLColor("[Channel1]", 0x18)}
-function managePFLColorDeck2(){ManagePFLColor("[Channel2]", 0x1c)}
+function managePFLColorDeck1(){ManagePFLColor(deck1channel, 0x18)}
+function managePFLColorDeck2(){ManagePFLColor(deck2channel, 0x1c)}
 
-var Deck1_pfl_alert = engine.makeConnection("[Channel1]", "pfl", managePFLColorDeck1);
-var Deck2_pfl_alert = engine.makeConnection("[Channel2]", "pfl", managePFLColorDeck2);
+var Deck1_pfl_alert = engine.makeConnection(deck1channel, "pfl", managePFLColorDeck1);
+var Deck2_pfl_alert = engine.makeConnection(deck2channel, "pfl", managePFLColorDeck2);
 
 function toggleEffectRackConnection(Deck, EffectUnit, value){
     if (jp(value)){
@@ -622,10 +646,10 @@ function toggleEffectRackConnection(Deck, EffectUnit, value){
     }
 }
 
-DJPad.Key_0x16 = function(channel, control, value, status, group){toggleEffectRackConnection("[Channel1]", 1, value)}
-DJPad.Key_0x17 = function(channel, control, value, status, group){toggleEffectRackConnection("[Channel1]", 2, value)}
-DJPad.Key_0x1a = function(channel, control, value, status, group){toggleEffectRackConnection("[Channel2]", 1, value)}
-DJPad.Key_0x1b = function(channel, control, value, status, group){toggleEffectRackConnection("[Channel2]", 2, value)}
+DJPad.Key_0x16 = function(channel, control, value, status, group){toggleEffectRackConnection(deck1channel, 1, value)}
+DJPad.Key_0x17 = function(channel, control, value, status, group){toggleEffectRackConnection(deck1channel, 2, value)}
+DJPad.Key_0x1a = function(channel, control, value, status, group){toggleEffectRackConnection(deck2channel, 1, value)}
+DJPad.Key_0x1b = function(channel, control, value, status, group){toggleEffectRackConnection(deck2channel, 2, value)}
 
 function ManageEffectToggleColor(address, Deck, EffectUnit){
     if (engine.getParameter("[EffectRack1_EffectUnit" + EffectUnit + "]", "group_" + Deck + "_enable")){
@@ -635,10 +659,10 @@ function ManageEffectToggleColor(address, Deck, EffectUnit){
     }
 }
 
-var Connection_Effect1_Deck1 = function(){ManageEffectToggleColor(0x16, "[Channel1]", "1")}
-var Connection_Effect2_Deck1 = function(){ManageEffectToggleColor(0x17, "[Channel1]", "2")}
-var Connection_Effect1_Deck2 = function(){ManageEffectToggleColor(0x1a, "[Channel2]", "1")}
-var Connection_Effect2_Deck2 = function(){ManageEffectToggleColor(0x1b, "[Channel2]", "2")}
+var Connection_Effect1_Deck1 = function(){ManageEffectToggleColor(0x16, deck1channel, "1")}
+var Connection_Effect2_Deck1 = function(){ManageEffectToggleColor(0x17, deck1channel, "2")}
+var Connection_Effect1_Deck2 = function(){ManageEffectToggleColor(0x1a, deck2channel, "1")}
+var Connection_Effect2_Deck2 = function(){ManageEffectToggleColor(0x1b, deck2channel, "2")}
 
 var EngineConnection_Effect1_Deck1 = engine.makeConnection("[EffectRack1_EffectUnit1]", "group_[Channel1]_enable", Connection_Effect1_Deck1);
 var EngineConnection_Effect2_Deck1 = engine.makeConnection("[EffectRack1_EffectUnit2]", "group_[Channel1]_enable", Connection_Effect2_Deck1);
